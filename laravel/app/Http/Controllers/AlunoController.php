@@ -6,22 +6,17 @@ use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
-    function index(){ 
-        return view('aluno.index');
+    function listar(){
+            return response()->json([
+                ["nome"=>"ana", "rm"=>"123"],
+                ["nome"=>"jose", "rm"=>"456"],
+                ["nome"=>"maria", "rm"=>"789"],
+                ["nome"=>"joana", "rm"=>"135"],
+                []
+            ]);
     }
-
-    function add(Request $dados) { 
-        $aluno = new \App\Models\AlunoModel();
-        $aluno::create($dados->all());
-
-        $alunos = new \App\Models\AlunoModel();
-
-        return view('aluno.index', ['success'=>'Cadastrado!', 'alunos'=>$alunos::all()]);
-    }
-
-    function remove() { }
-
-    function edit() { }
-
-    function list() { }
+    function adcionar(){}
+    function remove(){}
+    function update(){}
 }
+
